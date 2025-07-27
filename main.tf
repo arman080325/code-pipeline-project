@@ -24,6 +24,7 @@ module "codedeploy" {
   group_name   = "MyDeploymentGroup"
   role_arn     = module.iam.codedeploy_role_arn
   instance_tag = "CodeDeployTarget"
+  target_group_name = "MY-TARGET-GP"
 }
 
 module "codepipeline" {
@@ -38,4 +39,6 @@ module "codepipeline" {
   build_project_name = module.codebuild.project_name
   codedeploy_app     = module.codedeploy.app_name
   codedeploy_group   = module.codedeploy.group_name
+  pipeline_role_arn = var.pipeline_role_arn
+
 }

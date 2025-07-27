@@ -11,3 +11,5 @@ github_branch = "main"
 
 # GitHub Personal Access Token (Make sure this has repo and admin:repo_hook access)
 github_token = "REMOVED"
+target_group_name = "MY-TARGET-GP"
+pipeline_role_arn = "arn:aws:iam::095329250914:role/codepipelinefull"

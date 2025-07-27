@@ -1,19 +1,18 @@
 resource "aws_codebuild_project" "project" {
   name         = var.name
-  service_role = var.role_arn      # IAM role for CodeBuild
+  service_role = var.role_arn
 
   source {
-    type      = "GITHUB"           # Can be GITHUB, CODECOMMIT, etc.
-    location  = var.repo_url       # Complete GitHub repo URL
-    buildspec = "buildspec.yml"    # Build commands to run
+    type      = "CODEPIPELINE"       # must be this when integrated with CodePipeline
+    buildspec = "buildspec.yml"
   }
 
   artifacts {
-    type = "CODEPIPELINE"          # Output sent directly to CodePipeline
+    type = "CODEPIPELINE"
   }
 
   environment {
-    compute_type = "BUILD_GENERAL1_SMALL" # Build environment size
+    compute_type = "BUILD_GENERAL1_SMALL"
     image        = "aws/codebuild/standard:6.0"
     type         = "LINUX_CONTAINER"
   }

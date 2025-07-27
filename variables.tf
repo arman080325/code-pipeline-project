@@ -30,3 +30,11 @@ variable "github_token" {
   type        = string
   sensitive   = true
 }
+variable "target_group_name" {
+  description = "Name of the ALB target group"
+  type        = string
+}
+variable "pipeline_role_arn" {
+  description = "ARN of the IAM role created manually for CodePipeline"
+  type        = string
+}
