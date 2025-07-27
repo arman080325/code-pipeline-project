@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+  build:
+    commands:
+      - echo Building the application...
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
+  base-directory: '.'
